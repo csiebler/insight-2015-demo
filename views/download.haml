@@ -6,7 +6,7 @@
       %h1 File Sharing Service Demo built on StorageGRID Webscale
     .content
       %p #{@sender} has shared you a file with you (#{@size} MB):
-      %p #{@message}
+      %p(style="white-space: pre-wrap") #{@message}
       %a(href="/download/#{@id}")> #{@filename}
     .footer
       %p NetApp Insight 2015

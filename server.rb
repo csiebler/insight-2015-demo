@@ -15,7 +15,7 @@ end
 post "/upload" do 
   key = SecureRandom.hex(32);
   s3.put_object(bucket: 'fileshare', key: key,
-    metadata: { 'sender' => params['sender'], 'message' => params['message'], 
+    metadata: { 'sender' => params['sender'], 'message' => Base64.strict_encode64(params['message']),
                 'filename' => params['file'][:filename] },
     body: params['file'][:tempfile].read,
     server_side_encryption: 'AES256'
@@ -28,7 +28,7 @@ get "/:id" do
   @id = params[:id]
   head = s3.head_object(bucket: 'fileshare', key: @id)
   @sender = head.metadata['sender']
-  @message = head.metadata['message']
+  @message = Base64.strict_decode64(head.metadata['message'])
   @filename = head.metadata['filename']
   @size = (head.content_length.to_i / 1024.0 / 1024.0).round(1)
   haml :download

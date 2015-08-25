@@ -3,7 +3,7 @@ body {
   color: #1B1B1B;
   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 }
-input {
+input, textarea {
   font-size: 1em;
   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 }
