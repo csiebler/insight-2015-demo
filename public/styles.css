@@ -1,15 +1,41 @@
 body {
   background: #EEE;
   color: #1B1B1B;
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: Trebuchet MS, Arial, sans-serif;
 }
+
 input, textarea {
   font-size: 1em;
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  width: 20em;
+  font-family: Trebuchet MS, Arial, sans-serif;
 }
+
 fieldset {
   border-style: none;
 }
+
+label {
+  display: block;
+  float: center;
+  padding: 4px;
+}
+
+h1, h2 {
+  margin-top: 0em;
+  margin-bottom: .25em;
+  font-weight: bold;
+}
+h1 { font-size: 1.6em; }
+h2 { font-size: 1.4em; }
+a {
+  color: #095EAE;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .header {
   padding: 0.5em 0 0 0;
   margin: 0;
@@ -28,22 +54,26 @@ fieldset {
   text-align: center;
   border-top: 3px solid #000;
 }
-h1, h2 {
-  margin-top: 0em;
-  margin-bottom: .25em;
-  font-weight: bold;
-}
-h1 { font-size: 1.6em; }
-h2 { font-size: 1.4em; }
-a {
-  color: #095EAE;
-  font-weight: bold;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-.logo a:hover {
-  text-decoration: none;
-}
 
+.button {
+  background-color:#44c767;
+  -moz-border-radius:32px;
+  -webkit-border-radius:32px;
+  border-radius:32px;
+  border:2px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Trebuchet MS;
+  font-size:19px;
+  padding:8px 32px;
+  text-decoration:none;
+  text-align: center;
+}
+.button:hover {
+  background-color:#5cbf2a;
+}
+.button:active {
+  position:relative;
+  top:1px;
+}
