@@ -37,9 +37,7 @@ end
 get "/download/:id" do
   key = params[:id]
   filename = s3.head_object(bucket: 'fileshare', key: key).metadata['filename']
-  File.open('temp/' + key, 'wb') do |file|
-    s3.get_object(bucket: 'fileshare', key: key, response_target: file)
-  end
-  send_file "temp/" + key, :filename => filename, :type => 'Application/octet-stream'
+  tempfile = Tempfile.new("temp", "temp/")
+  s3.get_object(bucket: 'fileshare', key: key, response_target: tempfile.path)
+  send_file tempfile.path, :filename => filename, :type => 'Application/octet-stream'
 end
-
